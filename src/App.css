@@ -1,0 +1,69 @@
+body {
+  background-color: #f1f1f1; 
+}
+
+.MJD {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6%;
+  background-color: #f1f1f1;
+
+  /* //box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  z-index: 1000;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-bottom: 2px solid #eceaea;
+  /* //box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  z-index: 1000;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 20%;
+  background-color: rgb(109, 106, 106)
+}
+
+.logo {
+  height: 9em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #ff646caa);
+}
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
