@@ -1,43 +1,46 @@
-import { useState } from 'react'
-import logo from './assets/cat.jpg'
-import './App.css'
-import Header from './components/Header'
-import Content1 from './components/Content1';
-import Content2 from './components/Content2';
-import Content3 from './components/Content3';
-
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Content1 from "./components/Content1";
+import Content2 from "./components/Content2";
+import Content3 from "./components/Content3";
+import HomeContent from "./components/HomeContent";
 
 
 function App() {
-  const [activeContent, setActiveContent] = useState(false);
+  const [activeContent, setActiveContent] = useState(true);
 
-  const handleTest1Click = () => setActiveContent('content1');
-  const handleTest2Click = () => setActiveContent('content2');
-  const handleTest3Click = () => setActiveContent('content3');
+  const handleHomeClick = () => setActiveContent("homeContent");
+  const handleTest1Click = () => setActiveContent("content1");
+  const handleTest2Click = () => setActiveContent("content2");
+  const handleTest3Click = () => setActiveContent("content3");
 
   const renderContent = () => {
     switch (activeContent) {
-      case 'content1':
+      case "content1":
         return <Content1 />;
-      case 'content2':
+      case "content2":
         return <Content2 />;
-      case 'content3':
+      case "content3":
         return <Content3 />;
       default:
-        return null;  // No content is displayed initially
+        return <HomeContent />; 
     }
   };
 
   return (
     <>
-    <Header 
-    onTest1Click={handleTest1Click} 
-    onTest2Click={handleTest2Click} 
-    onTest3Click={handleTest3Click}
-    />
-    {renderContent()}
+ 
+
+      <Header
+        onHomeClick={handleHomeClick}
+        onTest1Click={handleTest1Click}
+        onTest2Click={handleTest2Click}
+        onTest3Click={handleTest3Click}
+      />
+      {renderContent()}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
