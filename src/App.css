@@ -9,6 +9,10 @@ body {
   z-index: 1000;
 }
 
+.test{
+  color: #727272;
+}
+
 .header {
   position: fixed;
   top: 0;
