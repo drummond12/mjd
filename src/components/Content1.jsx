@@ -5,7 +5,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/notessss')
+    axios.get('/api/notes')
       .then((response) => setUsers(response.data))
       .catch((error) => console.error('Error fetching users:', error));
   }, []);

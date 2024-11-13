@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Content1 from "./components/Content1";
 import Content2 from "./components/Content2";
-import Content3 from "./components/Content3";
+import Tools from "./components/Tools";
 import HomeContent from "./components/HomeContent";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<HomeContent />} />
         <Route path="/page1" element={<Content1 />} />
         <Route path="/page2" element={<Content2 />} />
-        <Route path="/page3" element={<Content3 />} />
+        <Route path="/page3" element={<Tools />} />
       </Routes>
     </Router>
   );

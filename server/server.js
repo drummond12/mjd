@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 app.use(express.json());
 
 // Define routes
-app.use('/api/notessss', noteRoutes);
+app.use('/api/notes', noteRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
