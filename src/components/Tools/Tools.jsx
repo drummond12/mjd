@@ -1,26 +1,23 @@
-// eslint-disable-next-line no-unused-vars
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import {Link} from "react-router-dom";
-import MJD from "../assets/mjd.png";
 
 const pages = [
-    {label: "Content 1", path: "/page1"},
-    {label: "Content 2", path: "/page2"},
-    {label: "Tools", path: "/tools"},
-];
+    {label: "JSON format", path: "/json-formatter"},
+    {label: "placeholder", path: "/tools"},
+    {label: "placeholder", path: "/tools"}];
 
 const buttonStyles = {
     color: "#727272",
-    fontSize: "15px",
+    fontSize: "20px",
     fontWeight: "bold",
     fontFamily: "Helvetica",
     marginRight: "10px",
+    marginTop: "15px",
     backgroundColor: "#ffffff",
     borderRadius: "20px",
     "&:hover": {
@@ -34,23 +31,22 @@ function Header() {
     return (
         <AppBar
             position="static"
-            sx={{backgroundColor: "#ffffff", boxShadow: "none", padding: "10px 0"}}
+            sx={{
+                borderTop: "3px solid #7733ff",
+                backgroundColor: "transparent", // No background color
+                boxShadow: "none",
+
+            }}
         >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component={Link}
-                        to="/"
+                    <Box
                         sx={{
+                            flexGrow: 1,
                             display: {xs: "none", md: "flex"},
+                            justifyContent: "flex-start",
                         }}
                     >
-                        <img src={MJD} className="MJD"></img>
-                    </Typography>
-
-                    <Box sx={{flexGrow: 1, display: {xs: "none", md: "flex"}}}>
                         {pages.map((page) => (
                             <Button
                                 key={page.label}
