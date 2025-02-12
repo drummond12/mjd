@@ -1,15 +1,15 @@
 body {
-  background-color: #f1f1f1; 
+  background-color: #f1f1f1;
 }
 
 .MJD {
-  max-height: 70px; /* Makes the image height fill the header */
-  width: auto; /* Ensures the width scales to maintain aspect ratio */
+  max-height: 70px;
+  width: auto;
   background-color: #ffffff;
   z-index: 1000;
 }
 
-.test{
+.test {
   color: #727272;
 }
 
@@ -66,7 +66,7 @@ body {
   filter: drop-shadow(0 0 2em #ff646caa);
 }
 
-.json-formatter-error{
+.json-formatter-error {
   box-sizing: border-box;
   border-radius: 10px;
   resize: none;
@@ -113,7 +113,6 @@ body {
   background: #e1dddd;
   outline: none;
 }
-
 
 @keyframes logo-spin {
   from {

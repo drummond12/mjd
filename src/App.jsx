@@ -1,9 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Content1 from "./components/Content1";
 import Content2 from "./components/Content2";
-import Tools from "./components/Tools/Tools";
+import Tools from "./components/Tools/Tools.jsx";
 import JsonFormatter from "./components/Tools/JsonFormatter";
 import HomeContent from "./components/HomeContent";
 
@@ -16,7 +16,7 @@ function App() {
         <Route path="/page1" element={<Content1 />} />
         <Route path="/page2" element={<Content2 />} />
         <Route path="/tools" element={<Tools />} />
-        <Route path="/json-formatter" element={<JsonFormatter/>} />
+        <Route path="/json-formatter" element={<JsonFormatter />} />
       </Routes>
     </Router>
   );

@@ -1,27 +1,22 @@
-// server/server.js
-const express = require('express');
-const connectDB = require('./config/db');
-const dotenv = require('dotenv');
-const noteRoutes = require('./routes/noteRouter');
+import express from "express";
+import dotenv from "dotenv";
+import dataRouter from "./routes/dataRouter.js";
+import postDataRouter from "./routes/postDataRouter.js";
 
-dotenv.config();  // Load environment variables
+dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
-// Connect to MongoDB
-connectDB();
-
-// Root route handler
-app.get('/', (req, res) => {
-  res.send('Welcome to the API');
+app.get("/", (req, res) => {
+  res.send("Welcome to the API");
 });
 
-// Middleware to parse JSON
+app.use("/api/data", dataRouter);
+
 app.use(express.json());
+app.use("/api/postData", postDataRouter);
 
-// Define routes
-app.use('/api/notes', noteRoutes);
-
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
