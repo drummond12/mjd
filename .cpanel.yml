@@ -1,5 +1,5 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/username/public_html
+    - export DEPLOYPATH=/home/markdru/public_html
     - cd dist
     - /bin/cp -r * $DEPLOYPATH
