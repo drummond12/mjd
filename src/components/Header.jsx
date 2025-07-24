@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
-import MJD from "../assets/mjd.png";
+import MJD from "../assets/MJD.png";
 
 const pages = [
   { label: "Placeholder 1", path: "/page1" },
