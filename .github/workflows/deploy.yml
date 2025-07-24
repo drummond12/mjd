@@ -4,10 +4,15 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  ftp-deploy:
+  deploy-production:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    name: Deploy to Production
 
     steps:
       - name: Checkout code with full history
@@ -26,10 +31,44 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to cPanel via FTP
+      - name: Deploy to cPanel (Production)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.CPANEL_HOST }}
           username: ${{ secrets.CPANEL_USERNAME }}
           password: ${{ secrets.CPANEL_PASSWORD }}
+          server-dir: ${{ secrets.PROD_DOMAIN }}
+          local-dir: ./dist/
+
+  deploy-preview:
+    if: |
+      github.event_name == 'pull_request' &&
+      contains(github.event.pull_request.labels.*.name, 'deploy-preview')
+    runs-on: ubuntu-latest
+    name: Deploy to Test Subdomain
+
+    steps:
+      - name: Checkout code with full history
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to cPanel (Test Subdomain)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.CPANEL_HOST }}
+          username: ${{ secrets.CPANEL_USERNAME }}
+          password: ${{ secrets.CPANEL_PASSWORD }}
+          server-dir: ${{ secrets.TEST_DOMAIN }}
           local-dir: ./dist/
