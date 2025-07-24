@@ -3,34 +3,24 @@ name: Deploy to cPanel
 on:
   push:
     branches:
-      - main
+      - main  
 
 jobs:
-  deploy:
+  FTP-Deploy-Action:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/checkout@v2
         with:
-          node-version: '18'
+          fetch-depth: 2
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
-      - name: Deploy to cPanel using API token
-        uses: pinkasey/cpanel-deploy-action@v1.2.1
+      - name: Deploy to cPanel via FTP
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          hostname: ${{ secrets.CPANEL_HOST }}
-          cpanelApiPort: 2083
-          cpanel_token: ${{ secrets.CPANEL_PASSWORD }}
-          cpanel_username: ${{ secrets.CPANEL_USERNAME }}
-          repository_root: ${{ secrets.CPANEL_REPOSITORY_ROOT }}
-          updateRepository: true
-          branch: main
+          ftp-server: ${{ secrets.CPANEL_HOST }}     
+          ftp-username: ${{ secrets.CPANEL_USERNAME }} 
+          ftp-password: ${{ secrets.CPANEL_PASSWORD }} 
+          local-dir: ./dist                             
+          server-dir: ${{ secrets.CPANEL_REPOSITORY_ROOT }}                    
+          protocol: ftp
+          port: 21
