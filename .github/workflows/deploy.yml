@@ -20,5 +20,4 @@ jobs:
           ftp-server: ${{ secrets.CPANEL_HOST }}     
           ftp-username: ${{ secrets.CPANEL_USERNAME }} 
           ftp-password: ${{ secrets.CPANEL_PASSWORD }} 
-          local-dir: ./dist                             
-          ftp-remote-dir: ${{ secrets.CPANEL_REPOSITORY_ROOT }}
+          local-dir: ./dist
