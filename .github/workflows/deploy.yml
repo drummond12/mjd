@@ -24,13 +24,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Deploy to cPanel
-        uses: trejgun/cpanel-deploy-action@v1
+      - name: Deploy to cPanel using API token
+        uses: pinkasey/cpanel-deploy-action@v1.2.1
         with:
-          host: ${{ secrets.CPANEL_HOST }}
-          username: ${{ secrets.CPANEL_USERNAME }}
-          password: ${{ secrets.CPANEL_PASSWORD }}
-          target: ${{ secrets.CPANEL_TARGET_DIR }}
-          source: ./dist
-          protocol: 'ftp'
-          port: 21    
+          hostname: ${{ secrets.CPANEL_HOST }}
+          cpanelApiPort: 2083
+          cpanel_token: ${{ secrets.CPANEL_TOKEN }}
+          cpanel_username: ${{ secrets.CPANEL_USERNAME }}
+          repository_root: ${{ secrets.CPANEL_REPOSITORY_ROOT }}
+          updateRepository: true
+          branch: main
