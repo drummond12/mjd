@@ -29,7 +29,7 @@ jobs:
         with:
           hostname: ${{ secrets.CPANEL_HOST }}
           cpanelApiPort: 2083
-          cpanel_token': ${{ secrets.CPANEL_PASSWORD }}
+          cpanel_token: ${{ secrets.CPANEL_PASSWORD }}
           cpanel_username: ${{ secrets.CPANEL_USERNAME }}
           repository_root: ${{ secrets.CPANEL_REPOSITORY_ROOT }}
           updateRepository: true
