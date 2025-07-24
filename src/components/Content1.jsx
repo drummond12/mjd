@@ -6,7 +6,7 @@ const Users = () => {
 
   useEffect(() => {
     axios
-      .get("/api/data")
+      .get("https://markjdrummond.com/api.php")
       .then((response) => {
         console.log("API Response:", response.data);
         setData(response.data);
