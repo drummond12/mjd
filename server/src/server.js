@@ -21,12 +21,11 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 app.use(express.json());
-app.get("/", (req, res) => {
-  res.send("Welcome to the API");
-});
+
 app.use("/api/notes", noteRouter);
 
 if (process.env.NODE_ENV === "production") {
+  console.log("PRODDDDDDDDD");
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
   app.get("*", (req, res) => {
